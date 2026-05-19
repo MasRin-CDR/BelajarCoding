@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modul belajar HTML di Coding Learning Hub.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Modul HTML | Coding Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body data-page="module" data-module="html">
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark">{"</span>
+          <span>Coding Learning Hub</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Navigasi utama">
+          <a data-nav="home" href="../index.html">Home</a>
+          <a data-nav="roadmap" href="roadmap.html">Roadmap</a>
+          <a data-nav="reference" href="reference.html">Reference</a>
+          <a data-nav="quiz" href="quiz.html?module=html">Quiz</a>
+          <a data-nav="playground" href="playground.html">Playground</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button button-secondary" href="quiz.html?module=html">Quiz HTML</a>
+          <button class="theme-toggle" type="button" aria-label="Ganti mode tema">Mode</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-main">
+      <section class="hero hero-page">
+        <div class="container hero-page-inner">
+          <div class="page-hero-copy">
+            <nav class="breadcrumb" id="breadcrumbTrail" aria-label="Breadcrumb"></nav>
+            <div id="moduleHeroMeta"></div>
+          </div>
+          <div class="hero-panel hero-panel-compact" id="moduleHeroPanel"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container page-layout">
+          <aside class="page-sidebar" id="moduleSidebar"></aside>
+          <div class="page-content">
+            <section class="content-block" id="moduleOverview"></section>
+            <section class="content-block" id="moduleConcepts"></section>
+            <section class="content-block" id="moduleExercises"></section>
+            <section class="content-block" id="moduleQuizTeaser"></section>
+            <section class="content-block" id="moduleMiniProject"></section>
+            <section class="content-block" id="moduleChecklist"></section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <p class="footer-title">Coding Learning Hub</p>
+          <p>Belajar HTML dengan struktur, semantic tags, form, table, media, dan accessibility dasar.</p>
+        </div>
+        <div class="footer-links">
+          <a href="reference.html">HTML Reference</a>
+          <a href="quiz.html?module=html">Quiz HTML</a>
+          <a href="playground.html">Playground</a>
+        </div>
+        <p class="footer-meta">© <span class="current-year"></span> Coding Learning Hub</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../assets/js/data.js" defer></script>
+  <script src="../assets/js/progress.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/pwa.js" defer></script>
+</body>
+</html>

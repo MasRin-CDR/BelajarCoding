@@ -1,0 +1,10 @@
+{
+  "name": "Coding Learning Hub",
+  "short_name": "CLH",
+  "description": "Platform belajar coding interaktif untuk HTML, CSS, JavaScript, Python, dan C++.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "lang": "id-ID"
+}
