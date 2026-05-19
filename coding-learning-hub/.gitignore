@@ -2,6 +2,8 @@ backend/.env
 backend/data/progress_submissions.json
 backend/__pycache__/
 backend/api/__pycache__/
+.chrome-headless/
+.edge-headless/
 *.pyc
 *.pyo
 *.pyd
