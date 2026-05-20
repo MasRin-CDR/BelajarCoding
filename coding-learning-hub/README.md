@@ -2,6 +2,8 @@
 
 Coding Learning Hub adalah website edukasi coding interaktif untuk belajar HTML, CSS, JavaScript, Python, dan C++ dari dasar sampai menengah/lanjut. Frontend dapat berjalan sebagai static website tanpa backend, sementara backend Python disiapkan sebagai lapisan API opsional.
 
+Versi terbaru juga menambahkan arsitektur platform engineering yang lebih luas: Full Stack Development, Backend/API, Database, Security, DevOps, Embedded Systems, ESP32, ECU Communication, dan Mobile Development. Frontend production-ready baru tersedia di folder `frontend/`, sementara versi awal tetap dipertahankan di root agar kompatibel dengan static hosting lama.
+
 ## Fitur Utama
 
 - Homepage dengan hero section, penjelasan platform, daftar modul, progress overview, search, filter, project practice, dan preview roadmap.
@@ -69,6 +71,60 @@ coding-learning-hub/
         ├── array_manager.cpp
         └── oop_class_example.cpp
 ```
+
+## Struktur Scalable Baru
+
+```text
+coding-learning-hub/
+├── frontend/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   ├── components/
+│   ├── pages/
+│   └── data/
+├── backend/
+│   ├── api/
+│   ├── services/
+│   ├── models/
+│   ├── middleware/
+│   ├── security/
+│   └── app.py
+├── mobile/
+│   └── android/
+├── embedded/
+│   ├── esp32/
+│   └── ecu/
+├── docs/
+├── docker/
+└── README.md
+```
+
+## Frontend Production App
+
+Jalankan versi platform baru:
+
+```bash
+cd coding-learning-hub/frontend
+python -m http.server 8080
+```
+
+Buka:
+
+- `http://127.0.0.1:8080`
+
+Fitur di frontend baru:
+
+- Roadmap interaktif untuk HTML, CSS, JavaScript, Python, C++, Full Stack, Security, DevOps, Embedded/ECU, dan Mobile.
+- Level Pemula, Menengah, dan Lanjut.
+- Checklist progress localStorage.
+- Search dan filter track/level.
+- Syntax & function reference.
+- Quiz system dengan skor otomatis.
+- HTML/CSS/JS playground dengan preview realtime.
+- Mini project nyata seperti REST API, CRUD app, ESP32 dashboard, dan ECU telemetry dashboard.
+- Dark/light mode.
+- Modal detail roadmap.
 
 ## Stack
 
@@ -148,6 +204,19 @@ Backend akan tersedia di:
 Health check:
 
 - `http://127.0.0.1:5000/health`
+
+Endpoint tambahan:
+
+- `GET /api/security/topics`
+- `GET /api/admin/audit-sample` dengan Bearer token role `admin`
+
+Security middleware backend:
+
+- CSP, `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, dan `Permissions-Policy`
+- Rate limiting in-memory per client
+- RBAC decorator untuk endpoint admin
+- Signed token utility dengan HMAC SHA-256
+- Request validation dan error response aman
 
 ## Contoh Endpoint API
 
@@ -250,6 +319,62 @@ Gunakan platform yang mendukung Python web app:
 4. Jalankan aplikasi dengan WSGI command yang sesuai platform, misalnya menunjuk ke object `app` di `app.py`.
 5. Update `CORS_ORIGINS` agar hanya mengizinkan domain frontend production.
 
+### Docker Compose
+
+```bash
+cd coding-learning-hub/docker
+docker compose up --build
+```
+
+Frontend Docker:
+
+- `http://localhost:8080`
+
+Backend Docker:
+
+- `http://localhost:5000/health`
+
+Detail deployment ada di `docs/DEPLOYMENT.md`.
+
+## Embedded & ECU
+
+Contoh tersedia di:
+
+- `embedded/esp32/telemetry_sender.ino`
+- `embedded/ecu/packet_parser.cpp`
+- `embedded/README.md`
+
+Materi yang dicakup:
+
+- ESP32 dasar
+- UART, I2C, SPI
+- Bluetooth serial
+- CAN Bus dan K-Line concept
+- ECU telemetry packet parsing
+- Checksum validation
+- Retry dan timeout handling
+- Android USB OTG concept
+- Realtime telemetry dashboard
+
+## Mobile
+
+Contoh tersedia di:
+
+- `mobile/android/TelemetryClient.kt`
+- `mobile/README.md`
+
+Materi yang dicakup:
+
+- Kotlin dasar
+- Android Studio
+- Jetpack Compose concept
+- USB Serial Android
+- Bluetooth communication
+- REST API integration
+- Local storage
+- APK build process
+- React Native intro
+
 ### Arsitektur deploy yang direkomendasikan
 
 - Frontend: static hosting
@@ -274,6 +399,13 @@ Gunakan platform yang mendukung Python web app:
 - Tambahkan CI/CD dan pipeline deployment.
 - Tambahkan asset icon PWA lengkap dan offline caching yang lebih granular.
 - Tambahkan localization dan dukungan i18n.
+
+## Dokumentasi Tambahan
+
+- `docs/DEPLOYMENT.md`
+- `docs/SECURITY_CHECKLIST.md`
+- `docs/API_EXAMPLES.md`
+- `docs/MAINTENANCE.md`
 
 ## Checklist Lanjutan
 

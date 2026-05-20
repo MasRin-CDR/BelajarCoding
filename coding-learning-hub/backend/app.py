@@ -9,6 +9,8 @@ from flask_cors import CORS
 
 from api.routes import api_blueprint
 from config import AppConfig
+from middleware.rate_limit import register_rate_limiter
+from middleware.security_headers import register_security_headers
 
 
 load_dotenv()
@@ -41,6 +43,8 @@ def create_app() -> Flask:
         },
     )
 
+    register_security_headers(app)
+    register_rate_limiter(app)
     app.register_blueprint(api_blueprint)
 
     @app.get("/health")

@@ -17,6 +17,8 @@ class AppConfig:
         self.host = os.getenv("HOST", "127.0.0.1")
         self.port = int(os.getenv("PORT", "5000"))
         self.secret_key = os.getenv("SECRET_KEY", "replace-this-in-production")
+        self.rate_limit_requests = int(os.getenv("RATE_LIMIT_REQUESTS", "120"))
+        self.rate_limit_window_seconds = int(os.getenv("RATE_LIMIT_WINDOW_SECONDS", "60"))
         raw_origins = os.getenv(
             "CORS_ORIGINS",
             "http://127.0.0.1:5500,http://localhost:5500,http://127.0.0.1:8000,http://localhost:8000",
@@ -30,4 +32,6 @@ class AppConfig:
             "HOST": self.host,
             "PORT": self.port,
             "SECRET_KEY": self.secret_key,
+            "RATE_LIMIT_REQUESTS": self.rate_limit_requests,
+            "RATE_LIMIT_WINDOW_SECONDS": self.rate_limit_window_seconds,
         }
