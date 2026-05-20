@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Platform belajar coding, software engineering, security, DevOps, embedded, ECU, dan mobile development.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+  <title>Engineering Learning Hub</title>
+  <link rel="stylesheet" href="coding-learning-hub/frontend/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <header class="app-header">
+    <a class="brand" href="index.html" aria-label="Engineering Learning Hub">
+      <span class="brand-icon">{}</span>
+      <span>Engineering Learning Hub</span>
+    </a>
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#reference">Reference</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#playground">Playground</a>
+      <a href="#projects">Projects</a>
+      <a href="#security">Security</a>
+    </nav>
+    <button class="icon-button" id="themeToggle" type="button" aria-label="Ganti tema" title="Ganti tema">◐</button>
+  </header>
+
+  <main id="main">
+    <section class="hero-band">
+      <div class="hero-content">
+        <p class="eyebrow">Production-grade curriculum</p>
+        <h1>Belajar coding, backend, security, DevOps, embedded, ECU, dan mobile dalam satu platform.</h1>
+        <p>Ikuti roadmap runtut, kerjakan quiz, jalankan playground, simpan progress, dan bangun mini project nyata dari web app sampai telemetry dashboard.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#roadmap">Mulai roadmap</a>
+          <a class="button secondary" href="#playground">Buka playground</a>
+        </div>
+      </div>
+      <div class="hero-terminal" aria-label="Engineering snapshot">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre><code>track.select("full-stack")
+security.enable("owasp-top-10")
+ecu.telemetry.parse(packet)
+progress.sync(localStorage)</code></pre>
+      </div>
+    </section>
+
+    <section class="stats-grid" id="stats"></section>
+
+    <section class="toolbar-band" aria-label="Filter materi">
+      <label>
+        <span>Cari materi</span>
+        <input id="searchInput" type="search" maxlength="80" placeholder="REST API, CAN Bus, JWT, Grid, ESP32...">
+      </label>
+      <label>
+        <span>Track</span>
+        <select id="trackFilter"></select>
+      </label>
+      <label>
+        <span>Level</span>
+        <select id="levelFilter">
+          <option value="all">Semua level</option>
+          <option value="Pemula">Pemula</option>
+          <option value="Menengah">Menengah</option>
+          <option value="Lanjut">Lanjut</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="section-heading">
+        <p class="eyebrow">Roadmap interaktif</p>
+        <h2>Materi, checklist, quiz, mini project, dan reference dalam satu alur.</h2>
+      </div>
+      <div class="roadmap-grid" id="roadmapGrid"></div>
+    </section>
+
+    <section class="section two-column">
+      <div id="reference" class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Syntax & function reference</p>
+          <h2>Lookup cepat untuk coding harian.</h2>
+        </div>
+        <div class="reference-list" id="referenceList"></div>
+      </div>
+      <div id="quiz" class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Quiz system</p>
+          <h2>Jawab, dapatkan skor, dan simpan progress.</h2>
+        </div>
+        <div id="quizApp"></div>
+      </div>
+    </section>
+
+    <section class="section" id="playground">
+      <div class="section-heading">
+        <p class="eyebrow">Live playground</p>
+        <h2>Editor HTML/CSS/JS dengan preview realtime.</h2>
+      </div>
+      <div class="playground">
+        <div class="editor-stack">
+          <label><span>HTML</span><textarea id="htmlEditor"></textarea></label>
+          <label><span>CSS</span><textarea id="cssEditor"></textarea></label>
+          <label><span>JavaScript</span><textarea id="jsEditor"></textarea></label>
+          <div class="button-row">
+            <button class="button primary" id="runCode" type="button">Run</button>
+            <button class="button secondary" id="resetCode" type="button">Reset</button>
+          </div>
+        </div>
+        <iframe id="previewFrame" title="Preview HTML CSS JavaScript" sandbox="allow-scripts"></iframe>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Mini project</p>
+        <h2>Latihan nyata untuk portofolio dan skill engineering.</h2>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section class="section two-column" id="security">
+      <div class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">OWASP-aligned security</p>
+          <h2>Checklist keamanan wajib sebelum production.</h2>
+        </div>
+        <ul class="check-list" id="securityChecklist"></ul>
+      </div>
+      <div class="panel">
+        <div class="section-heading compact">
+          <p class="eyebrow">Production readiness</p>
+          <h2>Checklist deploy, observability, dan maintenance.</h2>
+        </div>
+        <ul class="check-list" id="productionChecklist"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Engineering Learning Hub. Static-first frontend, secure Python backend, Docker-ready deployment, embedded and mobile examples.</p>
+    <a href="#security">Security checklist</a>
+  </footer>
+
+  <dialog id="detailModal" class="modal">
+    <button class="icon-button modal-close" id="closeModal" type="button" aria-label="Tutup detail">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <script src="coding-learning-hub/frontend/data/learning-data.js" defer></script>
+  <script src="coding-learning-hub/frontend/js/app.js" defer></script>
+</body>
+</html>
